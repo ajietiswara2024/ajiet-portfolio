@@ -1,0 +1,3 @@
+/** Tiny className joiner (no dependency needed). */
+export const cn = (...classes: Array<string | false | null | undefined>) =>
+  classes.filter(Boolean).join(' ')
