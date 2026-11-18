@@ -32,6 +32,7 @@ export const profile: Profile = {
       { label: 'Lulus', value: 'Oktober 2020' },
       { label: 'IPK', value: '3.16 / 4.00' },
       { label: 'Pelatihan', value: 'CCNA (Cisco Certified Network Associate) — Course-Net, 2025' },
+      { label: 'Pelatihan AI', value: 'Google AI Products — Hacktiv8, 2026' },
       { label: 'Fokus', value: 'Jaringan · IT Support · Infrastruktur' },
       { label: 'Domisili', value: 'Jakarta Barat, Indonesia' },
     ],
