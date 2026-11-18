@@ -142,7 +142,7 @@ export function Hero() {
           {cert && (
             <div className="absolute top-6 -left-4 hidden rounded-2xl border border-line bg-ink/80 px-4 py-3 backdrop-blur-md sm:block lg:-left-10">
               <p className="font-mono text-[0.62rem] tracking-widest text-accent uppercase">{ui.hero.certified}</p>
-              <p className="mt-0.5 text-sm font-medium">Cisco CCNE · {cert.institution.split(' ')[0]}</p>
+              <p className="mt-0.5 text-sm font-medium">CCNA — Cisco Certified Network Associate</p>
             </div>
           )}
         </motion.div>

@@ -12,7 +12,7 @@ export const certifications: Certification[] = [
     period: '12 April – 11 Mei 2025',
     grade: 'B+',
     description:
-      'Program pelatihan profesional yang berfokus pada dasar-dasar jaringan Cisco dan keterampilan praktis network engineering — IP addressing, subnetting, VLAN, routing dasar, switching, serta konfigurasi perangkat di Cisco Packet Tracer.',
+      'Program pelatihan berbasis kurikulum CCNA (Cisco Certified Network Associate) yang berfokus pada dasar-dasar jaringan Cisco dan keterampilan praktis network engineering — IP addressing, subnetting, VLAN, routing dasar, switching, serta konfigurasi perangkat di Cisco Packet Tracer.',
     fileUrl: '/assets/certificates/course-net-ccne-accelerator-competency.pdf',
     credentialId: '2505/PK-00027',
   },
@@ -22,7 +22,7 @@ export const certifications: Certification[] = [
     date: '11 Mei 2025',
     period: '12 April – 11 Mei 2025',
     description:
-      'Sertifikat penyelesaian atas keikutsertaan dalam bootcamp Cisco Certified Network Academy di Course-Net Indonesia.',
+      'Sertifikat penyelesaian atas keikutsertaan dalam bootcamp CCNA (Cisco Certified Network Associate) di Course-Net Indonesia.',
     fileUrl: '/assets/certificates/course-net-ccne-attendance-completion.pdf',
     credentialId: '2505/PK-00027',
   },

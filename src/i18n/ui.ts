@@ -17,7 +17,7 @@ const id = {
     scroll: 'Gulir',
     titleLabel: 'Jabatan profesional',
     locationLabel: 'Lokasi',
-    certified: 'Tersertifikasi',
+    certified: 'Pelatihan · Course-Net',
   },
   sections: {
     about: { eyebrow: 'Tentang Saya', title: 'Dari membimbing manusia hingga menghubungkan jaringan.', description: '' },
@@ -123,7 +123,7 @@ const en: UiStrings = {
     scroll: 'Scroll',
     titleLabel: 'Professional title',
     locationLabel: 'Location',
-    certified: 'Certified',
+    certified: 'Training · Course-Net',
   },
   sections: {
     about: { eyebrow: 'About', title: 'From guiding people to connecting networks.', description: '' },

@@ -10,7 +10,7 @@ export const skillCategories: SkillCategory[] = [
     icon: 'network',
     title: 'Jaringan & Infrastruktur IT',
     summary:
-      'Fokus utama. Dilatih melalui program Cisco Certified Network Engineer dan dipraktikkan di lingkungan lab simulasi.',
+      'Fokus utama. Dilatih melalui program CCNA (Cisco Certified Network Associate) di Course-Net dan dipraktikkan di lingkungan lab simulasi.',
     stage: 'Fokus utama · Terlatih & praktik lab',
     skills: [
       'Jaringan Cisco',

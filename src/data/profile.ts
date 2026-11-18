@@ -23,7 +23,7 @@ export const profile: Profile = {
   about: {
     paragraphs: [
       'Saya lulusan S1 Bimbingan dan Penyuluhan Islam dari Universitas Islam Ahmad Dahlan Sinjai. Perjalanan profesional saya berakar pada administrasi, pelayanan publik, pendidikan, dan pembinaan — pekerjaan yang mengajarkan saya untuk mendengarkan dengan saksama, mendokumentasikan dengan teliti, dan menyelesaikan masalah nyata.',
-      'Seiring waktu, ketertarikan saya pada teknologi informasi tumbuh menjadi arah karier yang saya pilih dengan sadar. Saya berfokus pada jaringan komputer dan infrastruktur IT, sambil membangun dasar pemrograman dan karya digital kreatif. Pada 2025 saya menyelesaikan pelatihan Cisco Certified Network Engineer di Course-Net, dan terus mengasah kemampuan melalui praktik laboratorium jaringan, eksplorasi teknologi, dan proyek digital.',
+      'Seiring waktu, ketertarikan saya pada teknologi informasi tumbuh menjadi arah karier yang saya pilih dengan sadar. Saya berfokus pada jaringan komputer dan infrastruktur IT, sambil membangun dasar pemrograman dan karya digital kreatif. Pada 2025 saya menyelesaikan pelatihan CCNA (Cisco Certified Network Associate) di Course-Net, dan terus mengasah kemampuan melalui praktik laboratorium jaringan, eksplorasi teknologi, dan proyek digital.',
       'Bagi saya, peralihan ini adalah proses pengembangan kompetensi profesional — bukan klaim bahwa saya sudah menjadi senior engineer. Yang saya bawa adalah kemampuan komunikasi, pemecahan masalah, dan kemauan belajar yang kuat, untuk diterapkan di titik temu antara teknologi, kreativitas, dan manusia.',
     ],
     facts: [
@@ -31,7 +31,7 @@ export const profile: Profile = {
       { label: 'Kampus', value: 'Universitas Islam Ahmad Dahlan Sinjai' },
       { label: 'Lulus', value: 'Oktober 2020' },
       { label: 'IPK', value: '3.16 / 4.00' },
-      { label: 'Pelatihan', value: 'Cisco CCNE — Course-Net, 2025' },
+      { label: 'Pelatihan', value: 'CCNA (Cisco Certified Network Associate) — Course-Net, 2025' },
       { label: 'Fokus', value: 'Jaringan · IT Support · Infrastruktur' },
       { label: 'Domisili', value: 'Jakarta Barat, Indonesia' },
     ],
