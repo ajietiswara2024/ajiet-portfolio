@@ -153,7 +153,10 @@ export const projects: Project[] = [
       'Version control dengan Git & GitHub',
     ],
     images: [],
-    links: { github: null, demo: null },
+    links: {
+      github: 'https://github.com/ajietiswara2024/ajiet-portfolio',
+      demo: 'https://ajiet-portfolio.vercel.app',
+    },
     cover: 'web',
   },
 ]
