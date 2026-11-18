@@ -81,18 +81,18 @@ export function Hero() {
           </motion.p>
 
           <h1 id="hero-title" className="mt-3 text-[clamp(2.75rem,9vw,6rem)] leading-[0.98] font-semibold tracking-[-0.04em]">
-            <RevealText text={profile.headline} delay={0.2} />
+            <RevealText text={profile.headline} delay={0.1} />
           </h1>
 
-          <motion.p {...fadeUp(0.65)} className="mt-6 max-w-2xl text-lg leading-snug text-fg/90 text-balance sm:text-xl lg:text-2xl">
+          <motion.p {...fadeUp(0.3)} className="mt-6 max-w-2xl text-lg leading-snug text-fg/90 text-balance sm:text-xl lg:text-2xl">
             {profile.subheadline}
           </motion.p>
 
-          <motion.p {...fadeUp(0.75)} className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+          <motion.p {...fadeUp(0.38)} className="mt-4 max-w-xl text-base leading-relaxed text-muted">
             {profile.description}
           </motion.p>
 
-          <motion.div {...fadeUp(0.85)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <motion.div {...fadeUp(0.46)} className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <ButtonLink href="#projects" iconRight={<ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />}>
               {ui.hero.viewProjects}
             </ButtonLink>
@@ -110,7 +110,7 @@ export function Hero() {
             </ButtonLink>
           </motion.div>
 
-          <motion.dl {...fadeUp(1)} className="mt-12 grid max-w-xl gap-4 border-t border-line pt-6 text-sm sm:grid-cols-2">
+          <motion.dl {...fadeUp(0.55)} className="mt-12 grid max-w-xl gap-4 border-t border-line pt-6 text-sm sm:grid-cols-2">
             <div>
               <dt className="sr-only">{ui.hero.titleLabel}</dt>
               <dd className="flex flex-wrap gap-x-2 gap-y-1 text-muted">
@@ -150,7 +150,7 @@ export function Hero() {
 
       <motion.a
         href="#about"
-        {...fadeUp(1.3)}
+        {...fadeUp(0.9)}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[0.65rem] tracking-[0.25em] text-muted uppercase md:flex"
       >
         {ui.hero.scroll}
