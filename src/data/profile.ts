@@ -15,7 +15,7 @@ export const profile: Profile = {
   headline: 'Halo, saya Ajiet.',
   subheadline: 'Menjelajahi titik temu antara Teknologi, Jaringan, Pemrograman, dan Desain Kreatif.',
   description:
-    'Calon profesional teknologi dengan latar belakang pendidikan dan pelayanan publik, serta semangat yang terus tumbuh untuk membangun solusi digital.',
+    'Berlatar belakang pendidikan dan pelayanan publik, kini menekuni jaringan komputer dan infrastruktur IT — dengan semangat yang terus tumbuh untuk membangun solusi digital.',
 
   photo: '/assets/images/profile.jpg',
   cvUrl: '/assets/cv/A-Ajiet-Iswara-Putra-CV.pdf',
