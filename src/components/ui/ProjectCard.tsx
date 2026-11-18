@@ -7,6 +7,7 @@ import { cn } from '../../lib/cn'
 import type { Project } from '../../types/content'
 import { ProjectCover } from './ProjectCover'
 import { StatusBadge } from './StatusBadge'
+import { VideoCover } from './VideoCover'
 
 const CcnaTopology = lazy(() => import('../ccna/CcnaTopology'))
 
@@ -28,6 +29,8 @@ export function ProjectCard({ project, featured = false }: { project: Project; f
         <Suspense fallback={<ProjectCover project={project} className={coverClass} />}>
           <CcnaTopology compact className={coverClass} />
         </Suspense>
+      ) : project.videos?.length ? (
+        <VideoCover project={project} className={coverClass} />
       ) : (
         <ProjectCover project={project} className={coverClass} />
       )}

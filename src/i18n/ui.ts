@@ -72,6 +72,7 @@ const id = {
     animation: 'Simulasi alur data',
     animationHint: 'Animasi berdasarkan topologi dan alamat IP asli proyek. Pilih skenario untuk melihat bagaimana paket berpindah di jaringan.',
     original: 'Topologi asli (Cisco Packet Tracer)',
+    episodes: 'Episode — putar langsung',
   },
   status: {
     'Lab Practice': 'Praktik Lab',
@@ -177,6 +178,7 @@ const en: UiStrings = {
     animation: 'Data flow simulation',
     animationHint: 'Animation based on the project’s real topology and IP addressing. Pick a scenario to see how packets move through the network.',
     original: 'Original topology (Cisco Packet Tracer)',
+    episodes: 'Episodes — play inline',
   },
   status: { 'Lab Practice': 'Lab Practice', 'Learning Project': 'Learning Project', 'In Progress': 'In Progress', Completed: 'Completed' },
   category: { Networking: 'Networking', Creative: 'Creative', 'Web Development': 'Web Development' },

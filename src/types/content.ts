@@ -70,6 +70,15 @@ export interface Project {
   table?: { title: string; columns: string[]; rows: string[][] }
   /** Honest post-project evaluation: what was found and how it is improved. */
   review?: { title: string; intro: string; items: { issue: string; fix: string }[] }
+  /** Video episodes (vertical MP4 + poster) shown as a playable gallery. */
+  videos?: {
+    title: string
+    src: string
+    poster: string
+    duration: string
+    description: string
+    topics: string[]
+  }[]
   /** Interactive animation shown on the card and detail page. */
   animation?: 'ccna-topology'
   /** Downloadable files (documentation, .pkt). Only real files. */

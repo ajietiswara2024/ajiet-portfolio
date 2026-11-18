@@ -7,6 +7,7 @@ import { ButtonLink } from '../components/ui/Button'
 import { ProjectCover } from '../components/ui/ProjectCover'
 import { Reveal } from '../components/ui/Reveal'
 import { StatusBadge } from '../components/ui/StatusBadge'
+import { VideoGallery } from '../components/ui/VideoGallery'
 import { getProjectBySlug, projects } from '../data/projects'
 import { useDocumentMeta } from '../hooks/useDocumentTitle'
 import { ui } from '../i18n/ui'
@@ -83,9 +84,27 @@ export function ProjectDetailPage() {
           </motion.section>
         )}
 
+        {project.videos?.length ? (
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease }}
+            className="mt-12"
+            aria-labelledby="episodes-title"
+          >
+            <h2 id="episodes-title" className={sectionLabel}>
+              {ui.projects.episodes}
+            </h2>
+            <div className="mt-6">
+              <VideoGallery videos={project.videos} />
+            </div>
+          </motion.section>
+        ) : null}
+
         {project.animation && project.images[0] && (
           <h2 className={cn(sectionLabel, 'mt-16')}>{ui.projects.original}</h2>
         )}
+        {!project.videos?.length && (
         <motion.figure
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,6 +131,7 @@ export function ProjectDetailPage() {
           </div>
           {project.imageCaptions?.[0] && <figcaption className="mt-3 text-sm text-muted">{project.imageCaptions[0]}</figcaption>}
         </motion.figure>
+        )}
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-16">
           <div className="min-w-0 space-y-14">
@@ -197,7 +217,7 @@ export function ProjectDetailPage() {
               </Reveal>
             )}
 
-            {(extraImages.length > 0 || !coverImage) && (
+            {(extraImages.length > 0 || (!coverImage && !project.videos?.length)) && (
               <Reveal>
                 <h2 className={sectionLabel}>{ui.projects.gallery}</h2>
                 {extraImages.length > 0 ? (
