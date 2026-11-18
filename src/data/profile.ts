@@ -8,8 +8,8 @@ import type { Profile } from '../types/content'
 export const profile: Profile = {
   fullName: 'A. Ajiet Iswara Putra',
   shortName: 'Ajiet',
-  title: 'Pegiat IT & Jaringan | Desainer Kreatif | Calon Developer',
-  roles: ['Pegiat IT & Jaringan', 'Desainer Kreatif', 'Calon Developer'],
+  title: 'Pegiat IT & Jaringan | Desainer Kreatif | Web Developer Pemula',
+  roles: ['Pegiat IT & Jaringan', 'Desainer Kreatif', 'Web Developer Pemula'],
   tagline: 'Menghubungkan Teknologi, Kreativitas, dan Manusia.',
   location: 'Jakarta Barat, Indonesia',
   headline: 'Halo, saya Ajiet.',
