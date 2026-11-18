@@ -43,6 +43,13 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.8, delay, ease },
 })
 
+/** Slide only (stays visible from the first frame) — used for the main text so it paints immediately (LCP). */
+const slideUp = (delay: number) => ({
+  initial: { y: 12 },
+  animate: { y: 0 },
+  transition: { duration: 0.8, delay, ease },
+})
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null)
   const reduce = useReducedMotion()
@@ -84,11 +91,11 @@ export function Hero() {
             <RevealText text={profile.headline} delay={0.1} />
           </h1>
 
-          <motion.p {...fadeUp(0.3)} className="mt-6 max-w-2xl text-lg leading-snug text-fg/90 text-balance sm:text-xl lg:text-2xl">
+          <motion.p {...slideUp(0.1)} className="mt-6 max-w-2xl text-lg leading-snug text-fg/90 text-balance sm:text-xl lg:text-2xl">
             {profile.subheadline}
           </motion.p>
 
-          <motion.p {...fadeUp(0.38)} className="mt-4 max-w-xl text-base leading-relaxed text-muted">
+          <motion.p {...slideUp(0.15)} className="mt-4 max-w-xl text-base leading-relaxed text-muted">
             {profile.description}
           </motion.p>
 
