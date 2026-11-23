@@ -11,14 +11,6 @@ export const education: Education[] = [
 
 export const leadership: Leadership[] = [
   {
-    role: 'Wakil Presiden Mahasiswa',
-    organization: 'Badan Eksekutif Mahasiswa (BEM)',
-    period: 'Januari 2018 – September 2019',
-    description:
-      'Mengoordinasikan program kerja antar divisi, memimpin rapat koordinasi, serta membangun komunikasi dengan pihak kampus dan organisasi eksternal.',
-    emphasis: ['Kepemimpinan', 'Koordinasi', 'Komunikasi', 'Organisasi'],
-  },
-  {
     role: 'Ketua Pimpinan Daerah',
     organization: 'Lingkar Dakwah Mahasiswa Indonesia (LDMI) Sinjai',
     period: 'Januari 2018 – Juli 2020',
