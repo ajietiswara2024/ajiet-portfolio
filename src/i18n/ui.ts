@@ -106,7 +106,7 @@ const id = {
   portrait: { alt: 'Foto', placeholder: 'Tempat foto' },
   notFound: { code: '404 · Host tujuan tidak dapat dijangkau', message: 'Halaman ini tidak ditemukan.', back: 'Kembali ke beranda', title: 'Tidak ditemukan' },
   footer: { credit: 'Dirancang dengan rasa ingin tahu. Dibangun dengan teknologi.', top: 'Kembali ke atas' },
-  meta: { defaultTitle: 'A. Ajiet Iswara Putra — Pegiat IT & Jaringan, Desainer Kreatif' },
+  meta: { defaultTitle: 'A. Ajiet Iswara Putra — IT & Network Enthusiast, Desainer Kreatif' },
 }
 
 export type UiStrings = typeof id
