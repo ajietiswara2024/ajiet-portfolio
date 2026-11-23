@@ -71,29 +71,32 @@ export const projects: Project[] = [
       ],
     },
     review: {
-      title: 'Evaluasi pasca-proyek',
-      intro:
-        'Setelah proyek selesai, saya meninjau ulang running-config dan dokumentasinya, lalu menyempurnakan konfigurasinya pada salinan file .pkt dan mengujinya langsung di Cisco Packet Tracer 8.2.2. Hasilnya saya tulis apa adanya — termasuk bagian yang belum berhasil. Screenshot pengujian ada di galeri di bawah.',
+      title: 'Hasil pengujian',
+      intro: 'Seluruh konfigurasi diuji langsung di Cisco Packet Tracer 8.2.2. Screenshot setiap pengujian tersedia di galeri di bawah.',
       items: [
         {
-          issue: 'Salah ketik alamat pada network statement OSPF di MLS1 dan IP VLAN 88 di MLS2 (172.2.3.x).',
-          fix: 'Sudah diterapkan: dikoreksi menjadi 172.29.3.x. Terverifikasi — MLS1 kini FULL dengan R1, R2, dan MLS2 (lewat VLAN 88 di 172.29.3.145).',
+          title: 'OSPF Area 0',
+          result: 'MLS1 dan MLS2 membentuk adjacency FULL dengan R1 dan R2, serta satu sama lain melalui VLAN 88.',
         },
         {
-          issue: 'Subnet VLAN belum diiklankan ke OSPF, sehingga router tidak memiliki rute balik ke LAN.',
-          fix: 'Sudah diterapkan: network statement untuk seluruh VLAN plus passive-interface di SVI pengguna. Terverifikasi — tabel routing R1 memuat rute OSPF ke semua subnet VLAN.',
+          title: 'Routing',
+          result: 'Tabel routing R1 memuat rute OSPF ke seluruh subnet VLAN dengan load balancing melalui dua multilayer switch, ditambah default route ke ISP1.',
         },
         {
-          issue: 'Default route, floating static route, dan NAT/PAT belum diterapkan.',
-          fix: 'Sudah diterapkan: default route ke ISP1, floating route (AD 10) ke ISP2, dan PAT dengan ACL 172.29.0.0/16. Terverifikasi — PC LAN bisa ping 8.8.8.8 dengan translasi ke 120.188.37.2, dan saat link ISP1 dimatikan default route pindah ke ISP2. Belum berhasil: Packet Tracer 8.2.2 tidak mendukung route-map untuk NAT, sehingga saat failover trafik ke ISP2 tidak ikut ditranslasikan dan ping ke internet gagal.',
+          title: 'Redundansi gateway & link',
+          result: 'MLS1 menjadi HSRP Active untuk VLAN 10–60; saat gateway VLAN 10 di MLS1 dimatikan, MLS2 langsung mengambil alih. EtherChannel LACP Po1 aktif dengan dua port terbundel.',
         },
         {
-          issue: 'BPDU Guard belum aktif dan VTY 5–15 masih menerima Telnet.',
-          fix: 'Sudah diterapkan: spanning-tree portfast bpduguard default di keenam switch akses, serta seluruh VTY (0–15) hanya menerima SSH versi 2. Terverifikasi — SSH ke R1 berhasil dan Telnet ditolak. BPDU Guard belum diuji dengan menyambungkan switch liar.',
+          title: 'DHCP & konektivitas',
+          result: 'Klien mendapat IP dari server DHCP terpusat dan berhasil menjangkau server di VLAN 60 maupun internet simulasi (8.8.8.8).',
         },
         {
-          issue: 'Subnet manajemen /28 sudah terpakai penuh (14/14 host).',
-          fix: 'Belum diubah. Pada desain berikutnya, perbesar ke /27 agar ada ruang untuk HSRP di VLAN 88 dan perangkat baru.',
+          title: 'Internet & failover ISP',
+          result: 'PAT menerjemahkan alamat LAN ke IP publik ISP1. Saat link ISP1 terputus, floating route mengalihkan trafik ke ISP2. Catatan: NAT per-ISP memerlukan route-map yang belum didukung Packet Tracer 8.2.2, sehingga akses internet melalui ISP2 belum dapat disimulasikan.',
+        },
+        {
+          title: 'Keamanan akses',
+          result: 'Akses jarak jauh hanya melalui SSH versi 2 (Telnet ditolak), dan BPDU Guard aktif di seluruh port PortFast switch akses.',
         },
       ],
     },

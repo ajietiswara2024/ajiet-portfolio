@@ -68,8 +68,8 @@ export interface Project {
   facts?: { label: string; value: string }[]
   /** Optional data table (e.g. VLAN plan). */
   table?: { title: string; columns: string[]; rows: string[][] }
-  /** Honest post-project evaluation: what was found and how it is improved. */
-  review?: { title: string; intro: string; items: { issue: string; fix: string }[] }
+  /** Test results: what was verified, each with a short title. */
+  review?: { title: string; intro: string; items: { title: string; result: string }[] }
   /** Video episodes (vertical MP4 + poster) shown as a playable gallery. */
   videos?: {
     title: string

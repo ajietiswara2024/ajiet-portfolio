@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { lazy, Suspense } from 'react'
-import { ArrowLeft, ArrowRight, Check, Download, ExternalLink, ImagePlus, Maximize2, Wrench } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Download, ExternalLink, ImagePlus, Maximize2 } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { GithubIcon } from '../components/icons/BrandIcons'
 import { ButtonLink } from '../components/ui/Button'
@@ -198,18 +198,9 @@ export function ProjectDetailPage() {
                   {project.review.items.map((item, i) => (
                     <li key={i} className="card grid gap-3 p-5 sm:grid-cols-[2rem_1fr]">
                       <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, '0')}</span>
-                      <div className="space-y-2 text-sm leading-relaxed">
-                        <p>
-                          <span className="mr-2 font-mono text-[0.65rem] tracking-widest text-muted uppercase">{ui.projects.issue}</span>
-                          {item.issue}
-                        </p>
-                        <p className="flex gap-2 text-fg/85">
-                          <Wrench size={14} className="mt-1 shrink-0 text-accent" aria-hidden />
-                          <span>
-                            <span className="mr-2 font-mono text-[0.65rem] tracking-widest text-accent uppercase">{ui.projects.fix}</span>
-                            {item.fix}
-                          </span>
-                        </p>
+                      <div className="space-y-1.5 text-sm leading-relaxed">
+                        <h3 className="font-medium text-fg">{item.title}</h3>
+                        <p className="text-fg/80">{item.result}</p>
                       </div>
                     </li>
                   ))}
