@@ -76,26 +76,33 @@ export const projects: Project[] = [
       items: [
         {
           title: 'OSPF Area 0',
+          icon: 'ospf',
           result: 'MLS1 dan MLS2 membentuk adjacency FULL dengan R1 dan R2, serta satu sama lain melalui VLAN 88.',
         },
         {
           title: 'Routing',
+          icon: 'routing',
           result: 'Tabel routing R1 memuat rute OSPF ke seluruh subnet VLAN dengan load balancing melalui dua multilayer switch, ditambah default route ke ISP1.',
         },
         {
           title: 'Redundansi gateway & link',
+          icon: 'redundancy',
           result: 'MLS1 menjadi HSRP Active untuk VLAN 10–60; saat gateway VLAN 10 di MLS1 dimatikan, MLS2 langsung mengambil alih. EtherChannel LACP Po1 aktif dengan dua port terbundel.',
         },
         {
           title: 'DHCP & konektivitas',
+          icon: 'client',
           result: 'Klien mendapat IP dari server DHCP terpusat dan berhasil menjangkau server di VLAN 60 maupun internet simulasi (8.8.8.8).',
         },
         {
           title: 'Internet & failover ISP',
-          result: 'PAT menerjemahkan alamat LAN ke IP publik ISP1. Saat link ISP1 terputus, floating route mengalihkan trafik ke ISP2. Catatan: NAT per-ISP memerlukan route-map yang belum didukung Packet Tracer 8.2.2, sehingga akses internet melalui ISP2 belum dapat disimulasikan.',
+          icon: 'internet',
+          result: 'PAT menerjemahkan alamat LAN ke IP publik ISP1. Saat link ISP1 terputus, floating route mengalihkan trafik ke ISP2.',
+          note: 'NAT per-ISP memerlukan route-map yang belum didukung Packet Tracer 8.2.2, sehingga akses internet melalui ISP2 belum dapat disimulasikan.',
         },
         {
           title: 'Keamanan akses',
+          icon: 'security',
           result: 'Akses jarak jauh hanya melalui SSH versi 2 (Telnet ditolak), dan BPDU Guard aktif di seluruh port PortFast switch akses.',
         },
       ],

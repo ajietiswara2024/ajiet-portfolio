@@ -69,7 +69,14 @@ export interface Project {
   /** Optional data table (e.g. VLAN plan). */
   table?: { title: string; columns: string[]; rows: string[][] }
   /** Test results: what was verified, each with a short title. */
-  review?: { title: string; intro: string; items: { title: string; result: string }[] }
+  review?: { title: string; intro: string; items: {
+      title: string
+      result: string
+      /** Short caveat shown under the result. */
+      note?: string
+      icon?: 'ospf' | 'routing' | 'redundancy' | 'client' | 'internet' | 'security'
+    }[]
+  }
   /** Video episodes (vertical MP4 + poster) shown as a playable gallery. */
   videos?: {
     title: string

@@ -1,6 +1,23 @@
 import { motion } from 'framer-motion'
 import { lazy, Suspense } from 'react'
-import { ArrowLeft, ArrowRight, Check, Download, ExternalLink, ImagePlus, Maximize2 } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  CircleCheck,
+  Download,
+  ExternalLink,
+  FlaskConical,
+  Globe,
+  ImagePlus,
+  Info,
+  Maximize2,
+  MonitorSmartphone,
+  Network,
+  Repeat2,
+  Route,
+  ShieldCheck,
+} from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { GithubIcon } from '../components/icons/BrandIcons'
 import { ButtonLink } from '../components/ui/Button'
@@ -17,6 +34,15 @@ import { NotFoundPage } from './NotFoundPage'
 const CcnaTopology = lazy(() => import('../components/ccna/CcnaTopology'))
 
 const ease = [0.22, 1, 0.36, 1] as const
+const reviewIcons = {
+  ospf: Network,
+  routing: Route,
+  redundancy: Repeat2,
+  client: MonitorSmartphone,
+  internet: Globe,
+  security: ShieldCheck,
+}
+
 const sectionLabel = 'font-mono text-xs tracking-[0.2em] text-muted uppercase'
 
 export function ProjectDetailPage() {
@@ -192,19 +218,56 @@ export function ProjectDetailPage() {
 
             {project.review && (
               <Reveal>
-                <h2 className={sectionLabel}>{project.review.title}</h2>
-                <p className="mt-6 text-base leading-relaxed text-muted">{project.review.intro}</p>
-                <ol className="mt-6 space-y-3">
-                  {project.review.items.map((item, i) => (
-                    <li key={i} className="card grid gap-3 p-5 sm:grid-cols-[2rem_1fr]">
-                      <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, '0')}</span>
-                      <div className="space-y-1.5 text-sm leading-relaxed">
-                        <h3 className="font-medium text-fg">{item.title}</h3>
-                        <p className="text-fg/80">{item.result}</p>
+                <section className="relative overflow-hidden rounded-3xl border border-line bg-ink-2 p-5 sm:p-8">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-[0.35] [background-image:linear-gradient(to_right,var(--color-line)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-line)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_at_top_right,black,transparent_70%)]"
+                  />
+                  <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 size-72 rounded-full bg-accent/20 blur-3xl" />
+                  <div className="relative">
+                    <div className="flex flex-wrap items-end justify-between gap-4">
+                      <div>
+                        <h2 className={sectionLabel}>{project.review.title}</h2>
+                        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">{project.review.intro}</p>
                       </div>
-                    </li>
-                  ))}
-                </ol>
+                      <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 font-mono text-xs text-accent">
+                        <FlaskConical size={14} aria-hidden /> Cisco Packet Tracer 8.2.2
+                      </span>
+                    </div>
+                    <ol className="mt-8 grid gap-4 sm:grid-cols-2">
+                      {project.review.items.map((item, i) => {
+                        const Icon = reviewIcons[item.icon ?? 'ospf']
+                        return (
+                          <li
+                            key={i}
+                            className="group relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-card to-ink p-5 transition-colors hover:border-accent/50"
+                          >
+                            <span aria-hidden className="absolute inset-y-0 left-0 w-0.5 bg-gradient-to-b from-accent to-transparent" />
+                            <div className="flex items-start justify-between gap-3">
+                              <span className="inline-flex size-11 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent">
+                                <Icon size={20} aria-hidden />
+                              </span>
+                              <span className="font-mono text-xs text-muted">{String(i + 1).padStart(2, '0')}</span>
+                            </div>
+                            <div className="space-y-2">
+                              <h3 className="font-medium text-fg">{item.title}</h3>
+                              <p className="text-sm leading-relaxed text-fg/75">{item.result}</p>
+                            </div>
+                            {item.note && (
+                              <p className="flex gap-2 rounded-xl border border-line bg-ink/60 p-3 text-xs leading-relaxed text-muted">
+                                <Info size={14} className="mt-0.5 shrink-0 text-accent-soft" aria-hidden />
+                                {item.note}
+                              </p>
+                            )}
+                            <span className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 font-mono text-[0.65rem] tracking-wider text-emerald-400 uppercase">
+                              <CircleCheck size={12} aria-hidden /> {ui.projects.verified}
+                            </span>
+                          </li>
+                        )
+                      })}
+                    </ol>
+                  </div>
+                </section>
               </Reveal>
             )}
 
