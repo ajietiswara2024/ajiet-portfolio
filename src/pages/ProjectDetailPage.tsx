@@ -230,9 +230,11 @@ export function ProjectDetailPage() {
                         <h2 className={sectionLabel}>{project.review.title}</h2>
                         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">{project.review.intro}</p>
                       </div>
-                      <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 font-mono text-xs text-accent">
-                        <FlaskConical size={14} aria-hidden /> Cisco Packet Tracer 8.2.2
-                      </span>
+                      {project.review.tool && (
+                        <span className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1.5 font-mono text-xs text-accent">
+                          <FlaskConical size={14} aria-hidden /> {project.review.tool}
+                        </span>
+                      )}
                     </div>
                     <ol className="mt-8 grid gap-4 sm:grid-cols-2">
                       {project.review.items.map((item, i) => {

@@ -135,6 +135,22 @@ function CoverArt({ variant }: { variant: Project['cover'] }) {
           <rect x="250" y="80" width="70" height="105" rx="8" stroke={accent} strokeOpacity="0.55" strokeWidth="1.5" fill="none" strokeDasharray="4 4" />
         </g>
       )}
+      {variant === 'security' && (
+        <g>
+          <circle cx="200" cy="120" r="78" stroke="#52525b" strokeWidth="1.5" fill="none" strokeOpacity="0.5" />
+          <circle cx="200" cy="120" r="52" stroke="#52525b" strokeWidth="1.5" fill="none" strokeOpacity="0.4" />
+          <circle cx="200" cy="120" r="26" stroke="#52525b" strokeWidth="1.5" fill="none" strokeOpacity="0.4" />
+          <path d="M200 120 L200 42" stroke={accent} strokeWidth="1.5" className="animate-spin-slow" style={{ transformOrigin: '200px 120px' }} />
+          <path d="M200 42 A78 78 0 0 1 255 65 L200 120 Z" fill={accent} fillOpacity="0.12" className="animate-spin-slow" style={{ transformOrigin: '200px 120px' }} />
+          {[[150, 95], [255, 108], [168, 158], [243, 150], [205, 70]].map(([x, y], i) => (
+            <circle key={i} cx={x} cy={y} r="3.5" fill={i < 3 ? accent : '#71717a'} />
+          ))}
+          <g transform="translate(200 120)">
+            <path d="M0 -30 L26 -20 V4 C26 20 14 30 0 36 C-14 30 -26 20 -26 4 V-20 Z" fill="#0A0A0A" stroke={accent} strokeWidth="2" />
+            <path d="M-11 2 L-3 11 L13 -9" stroke={accent} strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        </g>
+      )}
     </svg>
   )
 }

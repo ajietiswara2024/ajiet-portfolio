@@ -72,6 +72,7 @@ export const projects: Project[] = [
     },
     review: {
       title: 'Hasil pengujian',
+      tool: 'Cisco Packet Tracer 8.2.2',
       intro: 'Seluruh konfigurasi diuji langsung di Cisco Packet Tracer 8.2.2. Screenshot setiap pengujian tersedia di galeri di bawah.',
       items: [
         {
@@ -141,8 +142,100 @@ export const projects: Project[] = [
     cover: 'topology',
   },
   {
-    slug: 'motion-graphics-edukasi-jaringan',
+    slug: 'keamanan-jaringan-recon-hardening',
     number: '02',
+    title: 'Keamanan Jaringan: Reconnaissance & Hardening',
+    category: 'Security',
+    status: 'Lab Practice',
+    date: 'November 2026',
+    summary:
+      'Latihan keamanan jaringan dengan pendekatan serangan-dan-pertahanan: memetakan permukaan serangan memakai Nmap, membaca apa yang bisa dilihat penyerang, lalu menyusun langkah pengerasan (hardening). Semua pemindaian hanya dilakukan terhadap perangkat milik saya sendiri.',
+    context: [
+      'Setelah mempelajari sisi membangun jaringan di proyek CCNA, saya ingin memahami sisi sebaliknya: bagaimana seorang penyerang memetakan sebuah jaringan sebelum menyerang. Tahap ini disebut reconnaissance — mencari host yang hidup, port yang terbuka, dan layanan beserta versinya. Semakin banyak yang terlihat, semakin besar permukaan serangannya.',
+      'Etika adalah yang utama: pemindaian hanya sah dilakukan pada sistem milik sendiri atau yang Anda diberi izin menguji. Karena itu target saya hanya dua perangkat milik saya — komputer saya (localhost) dan router rumah saya (gateway). Saya memakai Nmap untuk memindai, lalu memasangkan setiap temuan dengan pertahanannya. Menariknya, router rumah saya masih membuka Telnet tanpa enkripsi — persis masalah yang saya tutup dengan SSH di lab CCNA, tetapi kali ini di dunia nyata.',
+    ],
+    facts: [
+      { label: 'Alat', value: 'Nmap 7.80' },
+      { label: 'Target', value: 'Localhost & router sendiri' },
+      { label: 'Metode', value: 'Port scan + deteksi versi layanan' },
+      { label: 'Temuan utama', value: 'Telnet, FTP & HTTP terbuka di router' },
+      { label: 'Etika', value: 'Hanya perangkat milik sendiri' },
+      { label: 'Pendekatan', value: 'Serangan → pertahanan (hardening)' },
+    ],
+    technologies: [
+      'Nmap',
+      'Port Scanning',
+      'Service & Version Detection',
+      'Network Reconnaissance',
+      'Hardening',
+      'ACL & Firewall',
+      'SSH / SFTP',
+      'Wireshark',
+      'Defense-in-Depth',
+    ],
+    focusAreas: [
+      'Memahami tahap reconnaissance dalam siklus serangan',
+      'Memetakan port terbuka dan layanan dengan Nmap',
+      'Membaca banner/versi layanan sebagai info bagi penyerang',
+      'Mengenali risiko protokol teks biasa (Telnet, FTP, HTTP)',
+      'Menyusun langkah hardening: menutup port, enkripsi, ACL/firewall',
+      'Menjaga etika: hanya memindai sistem milik sendiri',
+    ],
+    review: {
+      title: 'Temuan & rekomendasi hardening',
+      tool: 'Nmap 7.80',
+      intro:
+        'Hasil pemindaian Nmap terhadap perangkat saya sendiri, masing-masing dipasangkan dengan langkah pengerasannya. MAC address router disensor demi privasi.',
+      items: [
+        {
+          title: 'Komputer sendiri: SMB & RDP terbuka',
+          icon: 'client',
+          result: 'Port 445 (SMB) dan 3389 (RDP) terbuka di localhost — keduanya target serangan yang umum.',
+          note: 'Hardening: matikan RDP bila tidak dipakai, atau batasi lewat firewall ke IP tepercaya dengan Network Level Authentication; jangan pernah ekspos SMB ke internet.',
+        },
+        {
+          title: 'Router: Telnet & FTP tanpa enkripsi',
+          icon: 'security',
+          result: 'Router membuka Telnet (23) dan FTP (21, Bftpd 5.5). Keduanya mengirim kredensial dalam teks biasa sehingga bisa dibaca jika jaringan disadap.',
+          note: 'Hardening: nonaktifkan Telnet & FTP; gunakan SSH/SFTP. Inilah alasan di proyek CCNA semua VTY dibatasi hanya SSH.',
+        },
+        {
+          title: 'Router: panel admin lewat HTTP',
+          icon: 'internet',
+          result: 'Antarmuka admin (port 80, /cgi-bin/login.asp) berjalan di HTTP tanpa enkripsi, sehingga sesi login rawan disadap.',
+          note: 'Hardening: pakai HTTPS untuk panel admin, ganti kredensial bawaan, dan tutup akses manajemen dari sisi internet.',
+        },
+        {
+          title: 'Prinsip: perkecil permukaan serangan',
+          icon: 'routing',
+          result: 'Setiap port terbuka adalah satu pintu masuk. Semakin sedikit layanan yang terekspos, semakin kecil peluang penyerang.',
+          note: 'Hardening: terapkan defense-in-depth — hanya buka port yang perlu, enkripsi akses manajemen, dan saring dengan ACL/firewall.',
+        },
+      ],
+    },
+    images: [
+      '/assets/projects/keamanan-jaringan-recon-hardening/02-scan-gateway.webp',
+      '/assets/projects/keamanan-jaringan-recon-hardening/01-scan-localhost.webp',
+      '/assets/projects/keamanan-jaringan-recon-hardening/03-scan-versions.webp',
+    ],
+    imageCaptions: [
+      'Pemindaian router sendiri: Telnet (23), FTP (21), dan HTTP (80) terbuka — akses tanpa enkripsi. MAC disensor.',
+      'Pemindaian komputer sendiri: SMB (445) dan RDP (3389) terbuka, permukaan serangan khas Windows.',
+      'Deteksi versi: Nmap membaca FTP Bftpd 5.5, banner Telnet "Login:", dan halaman login HTTP — info berharga bagi penyerang.',
+    ],
+    imageFit: 'contain',
+    files: [
+      {
+        label: 'Unduh laporan pemindaian (.txt)',
+        href: '/assets/projects/keamanan-jaringan-recon-hardening/nmap-report.txt',
+      },
+    ],
+    links: { github: null, demo: null },
+    cover: 'security',
+  },
+  {
+    slug: 'motion-graphics-edukasi-jaringan',
+    number: '03',
     title: 'Motion Graphics Edukasi Jaringan',
     category: 'Creative',
     status: 'Completed',
@@ -223,7 +316,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'konten-digital-kreatif',
-    number: '03',
+    number: '04',
     title: 'Konten Digital Kreatif',
     category: 'Creative',
     status: 'In Progress',
@@ -237,7 +330,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'pengembangan-web-pribadi',
-    number: '04',
+    number: '05',
     title: 'Website Portofolio Pribadi',
     category: 'Web Development',
     status: 'Completed',

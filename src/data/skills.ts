@@ -34,6 +34,26 @@ export const skillCategories: SkillCategory[] = [
     tools: ['Cisco Packet Tracer', 'Wireshark'],
   },
   {
+    id: 'security',
+    icon: 'shield',
+    title: 'Keamanan Jaringan (Cybersecurity)',
+    summary:
+      'Dasar keamanan jaringan dengan pendekatan serangan-dan-pertahanan: memetakan permukaan serangan lalu memperkuatnya. Dipraktikkan di lab milik sendiri dan simulasi Packet Tracer.',
+    stage: 'Sedang dipelajari · Dasar & praktik lab',
+    skills: [
+      'Dasar Ethical Hacking',
+      'Network Reconnaissance',
+      'Port Scanning',
+      'Analisis Paket',
+      'Hardening Perangkat Jaringan',
+      'ACL & Firewall',
+      'Keamanan Layer 2 (Port Security, DHCP Snooping, BPDU Guard)',
+      'SSH & Enkripsi',
+      'Prinsip Defense-in-Depth',
+    ],
+    tools: ['Nmap', 'Wireshark', 'Cisco Packet Tracer'],
+  },
+  {
     id: 'programming',
     icon: 'code',
     title: 'Pemrograman & Pengembangan',

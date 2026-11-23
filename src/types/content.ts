@@ -27,7 +27,7 @@ export interface Profile {
   }
 }
 
-export type SkillIcon = 'network' | 'code' | 'palette'
+export type SkillIcon = 'network' | 'code' | 'palette' | 'shield'
 
 export interface SkillCategory {
   id: string
@@ -41,7 +41,7 @@ export interface SkillCategory {
 }
 
 export type ProjectStatus = 'Lab Practice' | 'Learning Project' | 'In Progress' | 'Completed'
-export type ProjectCategory = 'Networking' | 'Creative' | 'Web Development'
+export type ProjectCategory = 'Networking' | 'Security' | 'Creative' | 'Web Development'
 
 export interface Project {
   /** URL slug: /projects/:slug */
@@ -69,7 +69,7 @@ export interface Project {
   /** Optional data table (e.g. VLAN plan). */
   table?: { title: string; columns: string[]; rows: string[][] }
   /** Test results: what was verified, each with a short title. */
-  review?: { title: string; intro: string; items: {
+  review?: { title: string; intro: string; tool?: string; items: {
       title: string
       result: string
       /** Short caveat shown under the result. */
@@ -93,7 +93,7 @@ export interface Project {
   /** Only real URLs. Leave `null` until a real repository/demo exists. */
   links: { github: string | null; demo: string | null }
   /** Cover art variant used while no screenshot exists. */
-  cover: 'topology' | 'vlan' | 'motion' | 'creative' | 'web'
+  cover: 'topology' | 'vlan' | 'motion' | 'creative' | 'web' | 'security'
 }
 
 export interface Experience {

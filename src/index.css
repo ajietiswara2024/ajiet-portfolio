@@ -109,8 +109,19 @@
   animation: dash 3s linear infinite;
 }
 
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-dash {
+  .animate-dash,
+  .animate-spin-slow {
     animation: none;
   }
 }

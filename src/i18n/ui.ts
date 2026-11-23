@@ -81,6 +81,7 @@ const id = {
   } satisfies Record<ProjectStatus, string>,
   category: {
     Networking: 'Jaringan',
+    Security: 'Keamanan',
     Creative: 'Kreatif',
     'Web Development': 'Pengembangan Web',
   } satisfies Record<ProjectCategory, string>,
@@ -179,7 +180,7 @@ const en: UiStrings = {
     episodes: 'Episodes — play inline',
   },
   status: { 'Lab Practice': 'Lab Practice', 'Learning Project': 'Learning Project', 'In Progress': 'In Progress', Completed: 'Completed' },
-  category: { Networking: 'Networking', Creative: 'Creative', 'Web Development': 'Web Development' },
+  category: { Networking: 'Networking', Security: 'Security', Creative: 'Creative', 'Web Development': 'Web Development' },
   experience: { present: 'Present', current: 'Current' },
   education: { graduated: 'Graduated', gpa: 'GPA', leadership: 'Leadership experience', emphasis: 'Emphasis' },
   certifications: {

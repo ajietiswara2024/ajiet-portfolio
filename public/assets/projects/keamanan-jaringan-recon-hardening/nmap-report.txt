@@ -1,0 +1,51 @@
+================================================================
+  Network Reconnaissance Report — Ethical / Authorized Scan
+  A. Ajiet Iswara Putra
+  Target: perangkat milik sendiri (localhost + home gateway)
+  Tool  : Nmap 7.80
+  NOTE  : MAC address disensor demi privasi.
+================================================================
+
+[1] HOST SENDIRI — nmap -sT -sV -F 127.0.0.1
+----------------------------------------------------------------
+PORT     STATE SERVICE       VERSION
+135/tcp  open  msrpc         Microsoft Windows RPC
+445/tcp  open  microsoft-ds  (SMB)
+3389/tcp open  ms-wbt-server Microsoft Terminal Services (RDP)
+Service Info: OS: Windows
+
+Risiko: SMB (445) & RDP (3389) terbuka = target umum serangan.
+Hardening:
+  - Matikan RDP bila tidak dipakai; bila perlu, batasi dengan
+    Windows Firewall ke IP tepercaya + Network Level Authentication.
+  - Batasi SMB ke jaringan lokal; jangan pernah ekspos ke internet.
+
+[2] HOME GATEWAY / ROUTER — nmap -sT -F 192.168.1.1
+----------------------------------------------------------------
+PORT    STATE SERVICE
+21/tcp  open  ftp        -> transfer file tanpa enkripsi
+23/tcp  open  telnet     -> login tanpa enkripsi
+53/tcp  open  domain
+80/tcp  open  http       -> panel admin tanpa enkripsi
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+[3] DETAIL VERSI — nmap -sT -sV -p 21,23,80 192.168.1.1
+----------------------------------------------------------------
+21/tcp open  ftp     Bftpd 5.5
+23/tcp open  telnet  banner "Login:"
+80/tcp open  http    halaman login /cgi-bin/login.asp
+
+Risiko: Telnet & FTP mengirim kredensial dalam teks biasa; siapa
+pun yang menyadap jaringan bisa membacanya. Panel admin HTTP juga
+tidak terenkripsi.
+Hardening:
+  - Nonaktifkan Telnet & FTP di router; gunakan SSH/SFTP bila ada.
+  - Pakai HTTPS untuk panel admin; ganti kredensial bawaan.
+  - Tutup layanan yang tidak dipakai; terapkan ACL/filter.
+
+----------------------------------------------------------------
+Prinsip: kurangi permukaan serangan (attack surface) — hanya buka
+port yang benar-benar diperlukan, enkripsi semua akses manajemen,
+dan terapkan defense-in-depth berlapis.
+================================================================

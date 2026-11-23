@@ -1,11 +1,11 @@
-import { CodeXml, Network, Palette, Wrench, type LucideIcon } from 'lucide-react'
+import { CodeXml, Network, Palette, ShieldCheck, Wrench, type LucideIcon } from 'lucide-react'
 import { skillCategories } from '../../data/skills'
 import { ui } from '../../i18n/ui'
 import type { SkillIcon } from '../../types/content'
 import { Reveal } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
-const icons: Record<SkillIcon, LucideIcon> = { network: Network, code: CodeXml, palette: Palette }
+const icons: Record<SkillIcon, LucideIcon> = { network: Network, code: CodeXml, palette: Palette, shield: ShieldCheck }
 
 export function Skills() {
   return (
