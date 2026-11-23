@@ -73,7 +73,7 @@ export const projects: Project[] = [
     review: {
       title: 'Evaluasi pasca-proyek',
       intro:
-        'Setelah proyek selesai, saya meninjau ulang running-config dan dokumentasinya, lalu menerapkan perbaikan pada salinan revisi file .pkt dan mengujinya langsung di Cisco Packet Tracer 8.2.2. Hasilnya saya tulis apa adanya — termasuk bagian yang belum berhasil. Screenshot pengujian ada di galeri di bawah.',
+        'Setelah proyek selesai, saya meninjau ulang running-config dan dokumentasinya, lalu menyempurnakan konfigurasinya pada salinan file .pkt dan mengujinya langsung di Cisco Packet Tracer 8.2.2. Hasilnya saya tulis apa adanya — termasuk bagian yang belum berhasil. Screenshot pengujian ada di galeri di bawah.',
       items: [
         {
           issue: 'Salah ketik alamat pada network statement OSPF di MLS1 dan IP VLAN 88 di MLS2 (172.2.3.x).',
@@ -93,7 +93,7 @@ export const projects: Project[] = [
         },
         {
           issue: 'Subnet manajemen /28 sudah terpakai penuh (14/14 host).',
-          fix: 'Belum diubah. Pada revisi desain berikutnya, perbesar ke /27 agar ada ruang untuk HSRP di VLAN 88 dan perangkat baru.',
+          fix: 'Belum diubah. Pada desain berikutnya, perbesar ke /27 agar ada ruang untuk HSRP di VLAN 88 dan perangkat baru.',
         },
       ],
     },
@@ -113,7 +113,7 @@ export const projects: Project[] = [
       'Uji OSPF: R1 FULL dengan MLS1 dan MLS2; MLS1 FULL dengan R1, R2, dan MLS2 lewat VLAN 88.',
       'Tabel routing R1: rute OSPF ke semua subnet VLAN (load balance lewat dua MLS) dan default route ke ISP1.',
       'Uji HSRP: MLS1 Active untuk VLAN 10–60. Setelah SVI VLAN 10 di MLS1 dimatikan, MLS2 mengambil alih gateway 172.29.1.10. Grup lain di MLS2 sempat berstatus Speak saat uji ini.',
-      'EtherChannel LACP antar-MLS: Po1 (SU) dengan Gi1/0/7 dan Gi1/0/8 terbundel (P), dicek setelah file revisi dibuka ulang.',
+      'EtherChannel LACP antar-MLS: Po1 (SU) dengan Gi1/0/7 dan Gi1/0/8 terbundel (P), dicek setelah file dibuka ulang.',
       'PC Sales (VLAN 10) mendapat IP dari DHCP terpusat (permintaan pertama sempat timeout), lalu ping ke server DNS di VLAN 60 dan ke 8.8.8.8 (loopback simulasi internet di ISP) berhasil.',
       'NAT/PAT di R1: alamat 172.29.1.4 ditranslasikan ke IP publik ISP1 120.188.37.2.',
       'Failover ISP: setelah Serial0/1/0 ke ISP1 dimatikan, floating route via 195.136.17.9 (ISP2) aktif. Catatan: NAT ke ISP2 belum berjalan di Packet Tracer 8.2.2.',
@@ -123,8 +123,8 @@ export const projects: Project[] = [
     animation: 'ccna-topology',
     files: [
       {
-        label: 'Unduh file Packet Tracer revisi (.pkt)',
-        href: '/assets/projects/ccna-final-project/ccna-final-project-revisi.pkt',
+        label: 'Unduh file Packet Tracer (.pkt)',
+        href: '/assets/projects/ccna-final-project/ccna-final-project.pkt',
       },
     ],
     links: { github: null, demo: null },
