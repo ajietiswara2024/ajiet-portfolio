@@ -3,7 +3,6 @@ import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { navItems } from '../../data/navigation'
-import { profile } from '../../data/profile'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import { ui } from '../../i18n/ui'
 import { cn } from '../../lib/cn'
@@ -57,8 +56,9 @@ export function Navbar() {
         {ui.nav.skip}
       </a>
       <nav className="container-x flex h-16 items-center justify-between sm:h-18" aria-label={ui.nav.primary}>
-        <Link to="/" className="group flex items-center gap-2.5" aria-label={`${profile.fullName} — ${ui.nav.home}`}>
-          <span className="flex size-9 items-center justify-center rounded-xl border border-line bg-ink-2 font-display text-sm font-semibold transition-colors group-hover:border-accent/50">
+        {/* Accessible name starts with the visible name so voice-control users can say what they see. */}
+        <Link to="/" className="group flex items-center gap-2.5" aria-label={`Ajiet Iswara Putra — ${ui.nav.home}`}>
+          <span aria-hidden className="flex size-9 items-center justify-center rounded-xl border border-line bg-ink-2 font-display text-sm font-semibold transition-colors group-hover:border-accent/50">
             A<span className="text-accent">I</span>
           </span>
           <span className="hidden font-display text-sm font-medium tracking-tight sm:block">
