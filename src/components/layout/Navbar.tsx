@@ -56,12 +56,12 @@ export function Navbar() {
         {ui.nav.skip}
       </a>
       <nav className="container-x flex h-16 items-center justify-between sm:h-18" aria-label={ui.nav.primary}>
-        {/* Accessible name starts with the visible name so voice-control users can say what they see. */}
-        <Link to="/" className="group flex items-center gap-2.5" aria-label={`Ajiet Iswara Putra — ${ui.nav.home}`}>
+        {/* The visible name is the link's accessible name; on phones it stays available to screen readers. */}
+        <Link to="/" className="group flex items-center gap-2.5">
           <span aria-hidden className="flex size-9 items-center justify-center rounded-xl border border-line bg-ink-2 font-display text-sm font-semibold transition-colors group-hover:border-accent/50">
             A<span className="text-accent">I</span>
           </span>
-          <span className="hidden font-display text-sm font-medium tracking-tight sm:block">
+          <span className="sr-only font-display text-sm font-medium tracking-tight sm:not-sr-only">
             Ajiet Iswara Putra
           </span>
         </Link>
