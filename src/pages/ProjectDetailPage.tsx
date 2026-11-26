@@ -287,7 +287,7 @@ export function ProjectDetailPage() {
                               alt={extraCaptions[i] ?? `${project.title} — ${ui.projects.screenshot} ${i + 2}`}
                               loading="lazy"
                               decoding="async"
-                              className={cn('aspect-video w-full', contain ? 'bg-white object-contain p-2' : 'object-cover')}
+                              className={cn('aspect-video w-full', contain ? cn('object-contain p-2', project.imageBg === 'dark' ? 'bg-ink-2' : 'bg-white') : 'object-cover')}
                             />
                           </a>
                           {extraCaptions[i] && <figcaption className="p-3 text-xs text-muted">{extraCaptions[i]}</figcaption>}

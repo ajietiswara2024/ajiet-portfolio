@@ -119,9 +119,35 @@
   animation: spin-slow 6s linear infinite;
 }
 
+/* Cursor spotlight on cards; --mx/--my are set by a single pointer listener in App. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    background-image: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      rgb(249 115 22 / 0.09),
+      transparent 45%
+    );
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+}
+
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-dash,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .animate-marquee {
     animation: none;
   }
 }

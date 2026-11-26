@@ -145,7 +145,14 @@ export function Hero() {
           style={{ y: portraitY }}
           className="relative mx-auto w-full max-w-[22rem] lg:max-w-none"
         >
-          <ProfilePortrait className="aspect-[4/5]" />
+          {/* Rotating light edge: a spinning conic gradient behind a 1px gap around the portrait. */}
+          <div className="relative overflow-hidden rounded-[1.85rem] p-px">
+            <div
+              aria-hidden
+              className="animate-spin-slow absolute top-1/2 left-1/2 aspect-square w-[160%] -translate-x-1/2 -translate-y-1/2 bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,#f97316_320deg,#fdba74_340deg,transparent_360deg)] [animation-duration:8s]"
+            />
+            <ProfilePortrait className="relative aspect-[4/5]" />
+          </div>
           {cert && (
             <div className="absolute top-6 -left-4 hidden rounded-2xl border border-line bg-ink/80 px-4 py-3 backdrop-blur-md sm:block lg:-left-10">
               <p className="font-mono text-[0.62rem] tracking-widest text-accent uppercase">{ui.hero.certified}</p>
@@ -156,7 +163,7 @@ export function Hero() {
       </div>
 
       <motion.a
-        href="#about"
+        href="#projects"
         {...fadeUp(0.9)}
         className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[0.65rem] tracking-[0.25em] text-muted uppercase md:flex"
       >

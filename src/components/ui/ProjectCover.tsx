@@ -18,7 +18,7 @@ export function ProjectCover({
   const image = project.images[0]
 
   return (
-    <div className={cn('relative overflow-hidden', image && project.imageFit === 'contain' ? 'bg-white' : 'bg-ink-2', className)}>
+    <div className={cn('relative overflow-hidden', image && project.imageFit === 'contain' && project.imageBg !== 'dark' ? 'bg-white' : 'bg-ink-2', className)}>
       {image ? (
         <img
           src={image}
@@ -27,7 +27,7 @@ export function ProjectCover({
           decoding="async"
           className={cn(
             'h-full w-full transition-transform duration-700 ease-[var(--ease-premium)] group-hover:scale-[1.02]',
-            project.imageFit === 'contain' ? 'bg-white object-contain p-2 sm:p-3' : 'object-cover',
+            project.imageFit === 'contain' ? cn('object-contain p-2 sm:p-3', project.imageBg !== 'dark' && 'bg-white') : 'object-cover',
           )}
         />
       ) : (

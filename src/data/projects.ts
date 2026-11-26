@@ -224,6 +224,7 @@ export const projects: Project[] = [
       'Deteksi versi: Nmap membaca FTP Bftpd 5.5, banner Telnet "Login:", dan halaman login HTTP — info berharga bagi penyerang.',
     ],
     imageFit: 'contain',
+    imageBg: 'dark',
     files: [
       {
         label: 'Unduh laporan pemindaian (.txt)',

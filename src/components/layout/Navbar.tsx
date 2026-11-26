@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -19,6 +19,7 @@ export function Navbar() {
   const open = openOn === pathname
   const setOpen = (value: boolean | ((v: boolean) => boolean)) =>
     setOpenOn((typeof value === 'function' ? value(open) : value) ? pathname : null)
+  const { scrollYProgress } = useScroll()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -153,6 +154,11 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      <motion.div
+        aria-hidden
+        style={{ scaleX: scrollYProgress }}
+        className="absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-accent to-accent-soft"
+      />
     </header>
   )
 }

@@ -7,9 +7,9 @@ export function About() {
   const { paragraphs, facts, transferableSkills } = profile.about
 
   return (
-    <section id="about" aria-labelledby="about-title" className="section-y">
+    <section id="about" aria-labelledby="about-title" className="section-y border-t border-line/60 bg-ink-2/40">
       <div className="container-x">
-        <SectionHeading id="about-title" index="01" eyebrow={ui.sections.about.eyebrow} title={ui.sections.about.title} />
+        <SectionHeading id="about-title" index="02" eyebrow={ui.sections.about.eyebrow} title={ui.sections.about.title} />
 
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
           <Reveal className="space-y-6 text-base leading-relaxed text-muted sm:text-lg">

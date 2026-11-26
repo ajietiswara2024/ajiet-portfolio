@@ -9,11 +9,11 @@ const icons: Record<SkillIcon, LucideIcon> = { network: Network, code: CodeXml, 
 
 export function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title" className="section-y border-t border-line/60 bg-ink-2/40">
+    <section id="skills" aria-labelledby="skills-title" className="section-y">
       <div className="container-x">
         <SectionHeading
           id="skills-title"
-          index="02"
+          index="03"
           eyebrow={ui.sections.skills.eyebrow}
           title={ui.sections.skills.title}
           description={ui.sections.skills.description}

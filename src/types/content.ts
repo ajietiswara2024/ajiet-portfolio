@@ -60,6 +60,8 @@ export interface Project {
   imageCaptions?: string[]
   /** 'contain' shows the whole image on a white card — best for diagrams. Default 'cover'. */
   imageFit?: 'cover' | 'contain'
+  /** Backdrop behind 'contain' images: light for diagrams (default), dark for terminal screenshots. */
+  imageBg?: 'light' | 'dark'
   /** e.g. 'Mei 2025' */
   date?: string
   /** Longer background paragraphs for the detail page. */
